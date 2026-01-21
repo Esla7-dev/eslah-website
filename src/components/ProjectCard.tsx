@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Project } from "@/data/projects";
 import ToolBadges from "@/components/ToolBadges";
 
@@ -20,14 +21,27 @@ export default function ProjectCard({ project, isArabic = false }: { project: Pr
   return (
     <Link
       href={href}
-      className="block rounded-2xl border border-white/10 p-6 hover:border-white/20 transition"
+      className="block rounded-2xl border border-white/10 overflow-hidden hover:border-white/20 transition"
     >
-      <div className="flex items-start justify-between gap-4">
-        <h3 className="text-lg font-medium">{title}</h3>
-        <span className="text-xs text-white/60 border border-white/10 rounded px-2 py-1">
-          {p.projectType}
-        </span>
-      </div>
+      {/* Cover Image */}
+      {p.coverImage && (
+        <div className="relative w-full h-48 bg-white/5">
+          <Image
+            src={p.coverImage}
+            alt={title}
+            fill
+            className="object-cover"
+          />
+        </div>
+      )}
+
+      <div className="p-6">
+        <div className="flex items-start justify-between gap-4">
+          <h3 className="text-lg font-medium">{title}</h3>
+          <span className="text-xs text-white/60 border border-white/10 rounded px-2 py-1">
+            {p.projectType}
+          </span>
+        </div>
 
       <div className="mt-3 text-sm text-white/60">
         {p.clientType} • {location} {p.year ? `• ${p.year}` : ""}
@@ -79,6 +93,7 @@ export default function ProjectCard({ project, isArabic = false }: { project: Pr
             {t}
           </span>
         ))}
+      </div>
       </div>
     </Link>
   );

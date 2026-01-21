@@ -1,8 +1,22 @@
+import Image from "next/image";
+
 export default function ArabicHome() {
   return (
     <>
       {/* Hero */}
-      <section className="px-8 py-24 max-w-6xl mx-auto">
+      <section className="relative px-8 py-24 max-w-6xl mx-auto">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 -mx-8 -z-10 overflow-hidden">
+          <Image
+            src="/assets/hero-bg.jpg"
+            alt="تصميم معماري عصري"
+            fill
+            className="object-cover opacity-60"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/80" />
+        </div>
+
         <h1 className="text-4xl md:text-5xl font-light leading-tight">
           نقدّم حلول تصميم معمارية واضحة،
           <br />

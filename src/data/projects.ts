@@ -43,6 +43,7 @@ export const projects: Project[] = [
     location: "KSA (Anonymized)",
     locationAr: "السعودية",
     year: "2025",
+    coverImage: "/assets/projects/villa-exterior.jpg",
     narrative:
       "Client needed a fast approval-ready concept for a modern villa. We delivered coordinated layouts, facade direction, and clear visualization options. Result: quicker decisions, fewer revision loops, and a cleaner handoff to development.",
     narrativeAr:
@@ -64,6 +65,10 @@ export const projects: Project[] = [
     tools: ["Revit", "AutoCAD", "3ds Max", "Unreal", "AI"],
     tags: ["Architecture", "Visualization"],
     tagsAr: ["معماري", "تصور بصري"],
+    images: [
+      "/assets/projects/villa-exterior.jpg",
+      "/assets/projects/villa-interior.jpg",
+    ],
   },
   {
     slug: "duplex-compact-02",
@@ -74,6 +79,7 @@ export const projects: Project[] = [
     location: "KSA (Anonymized)",
     locationAr: "السعودية",
     year: "2024",
+    coverImage: "/assets/projects/duplex-exterior.jpg",
     narrative:
       "The duplex plan had tight area limits and privacy concerns. We reworked zoning and circulation, aligned interiors with use priorities, and prepared a review package. Result: improved efficiency, better privacy separation, and smoother stakeholder approval.",
     narrativeAr:
@@ -95,6 +101,9 @@ export const projects: Project[] = [
     tools: ["Revit", "AutoCAD", "SketchUp", "3ds Max"],
     tags: ["Interior", "Space Planning"],
     tagsAr: ["داخلي", "تخطيط المساحات"],
+    images: [
+      "/assets/projects/duplex-exterior.jpg",
+    ],
   },
   {
     slug: "commercial-fitout-03",
@@ -105,6 +114,7 @@ export const projects: Project[] = [
     location: "KSA (Anonymized)",
     locationAr: "السعودية",
     year: "2024",
+    coverImage: "/assets/projects/commercial-exterior.jpg",
     narrative:
       "Corporate client required brand-aligned fit-out concepts with clear deliverables for stakeholder review. We structured the design process around approvals and prepared presentation-ready packages. Result: faster sign-off and reduced scope ambiguity.",
     narrativeAr:
@@ -126,5 +136,9 @@ export const projects: Project[] = [
     tools: ["AutoCAD", "3ds Max", "Unreal", "AI"],
     tags: ["Interior", "Brand", "Presentation"],
     tagsAr: ["داخلي", "هوية بصرية", "عرض"],
+    images: [
+      "/assets/projects/commercial-exterior.jpg",
+      "/assets/projects/hotel-lobby.jpg",
+    ],
   },
 ];
