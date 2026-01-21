@@ -1,7 +1,39 @@
-export const metadata = {
-  title: "About — ESLAH",
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About — ESLAH Architecture",
   description:
-    "Multidisciplinary design team delivering coordinated outcomes.",
+    "Multidisciplinary design team delivering coordinated architecture, planning, and design solutions prepared for approval and execution.",
+  openGraph: {
+    title: "About — ESLAH Architecture",
+    description:
+      "Multidisciplinary design team delivering coordinated architecture, planning, and design solutions prepared for approval and execution.",
+    url: "https://eslah.com/about",
+    siteName: "ESLAH Architecture",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "ESLAH Architecture",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About — ESLAH Architecture",
+    description:
+      "Multidisciplinary design team delivering coordinated architecture, planning, and design solutions.",
+    images: ["/og.png"],
+  },
+  alternates: {
+    canonical: "https://eslah.com/about",
+    languages: {
+      "ar-SA": "https://eslah.com/ar/about",
+    },
+  },
 };
 
 export default function About() {

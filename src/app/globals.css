@@ -13,6 +13,35 @@ body {
   text-rendering: geometricPrecision;
 }
 
+/* Skip to content link for accessibility */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: white;
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 100;
+  border-radius: 0 0 4px 0;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Improved focus indicators */
+*:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 4px;
+}
+
 ::selection {
   background: rgba(255, 255, 255, 0.18);
 }
@@ -45,3 +74,4 @@ body {
 .input:focus {
   border-color: rgba(255, 255, 255, 0.28);
 }
+

@@ -3,6 +3,60 @@ import { notFound } from "next/navigation";
 import ProjectGallery from "@/components/ProjectGallery";
 import ProjectHighlights from "@/components/ProjectHighlights";
 import ToolBadges from "@/components/ToolBadges";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
+
+  if (!project) {
+    return {
+      title: "المشروع غير موجود",
+    };
+  }
+
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://eslah.com";
+  const url = `${baseUrl}/ar/projects/${slug}`;
+  const title = project.titleAr || project.title;
+  const description = (project.narrativeAr || project.narrative).substring(0, 160);
+
+  return {
+    title: `${title} | إصلاح للعمارة`,
+    description,
+    openGraph: {
+      title: `${title} | إصلاح للعمارة`,
+      description,
+      url,
+      siteName: "إصلاح للعمارة",
+      images: [
+        {
+          url: project.images?.[0] || "/og.png",
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+      locale: "ar_SA",
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | إصلاح للعمارة`,
+      description,
+      images: [project.images?.[0] || "/og.png"],
+    },
+    alternates: {
+      canonical: url,
+      languages: {
+        "en-US": `${baseUrl}/projects/${slug}`,
+      },
+    },
+  };
+}
 
 export default async function ArabicProjectDetail({
   params,

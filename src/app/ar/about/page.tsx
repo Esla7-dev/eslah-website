@@ -1,3 +1,41 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "من نحن — إصلاح للعمارة",
+  description:
+    "فريق تصميم متعدد التخصصات يقدم حلول معمارية وتخطيطية واضحة، مهيأة للاعتماد والتنفيذ.",
+  openGraph: {
+    title: "من نحن — إصلاح للعمارة",
+    description:
+      "فريق تصميم متعدد التخصصات يقدم حلول معمارية وتخطيطية واضحة، مهيأة للاعتماد والتنفيذ.",
+    url: "https://eslah.com/ar/about",
+    siteName: "إصلاح للعمارة",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "إصلاح للعمارة",
+      },
+    ],
+    locale: "ar_SA",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "من نحن — إصلاح للعمارة",
+    description:
+      "فريق تصميم متعدد التخصصات يقدم حلول معمارية وتخطيطية واضحة، مهيأة للاعتماد والتنفيذ.",
+    images: ["/og.png"],
+  },
+  alternates: {
+    canonical: "https://eslah.com/ar/about",
+    languages: {
+      "en-US": "https://eslah.com/about",
+    },
+  },
+};
+
 export default function ArabicAbout() {
   return (
     <section className="px-8 py-20">

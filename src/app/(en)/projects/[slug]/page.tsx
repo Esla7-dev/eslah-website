@@ -3,6 +3,58 @@ import { notFound } from "next/navigation";
 import ProjectGallery from "@/components/ProjectGallery";
 import ProjectHighlights from "@/components/ProjectHighlights";
 import ToolBadges from "@/components/ToolBadges";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
+
+  if (!project) {
+    return {
+      title: "Project Not Found",
+    };
+  }
+
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://eslah.com";
+  const url = `${baseUrl}/projects/${slug}`;
+
+  return {
+    title: `${project.title} | ESLAH Architecture`,
+    description: project.narrative.substring(0, 160),
+    openGraph: {
+      title: `${project.title} | ESLAH Architecture`,
+      description: project.narrative.substring(0, 160),
+      url,
+      siteName: "ESLAH Architecture",
+      images: [
+        {
+          url: project.images?.[0] || "/og.png",
+          width: 1200,
+          height: 630,
+          alt: project.title,
+        },
+      ],
+      locale: "en_US",
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | ESLAH Architecture`,
+      description: project.narrative.substring(0, 160),
+      images: [project.images?.[0] || "/og.png"],
+    },
+    alternates: {
+      canonical: url,
+      languages: {
+        "ar-SA": `${baseUrl}/ar/projects/${slug}`,
+      },
+    },
+  };
+}
 
 export default async function ProjectDetail({
   params,

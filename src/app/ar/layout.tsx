@@ -21,8 +21,11 @@ export default function ArabicLayout({
 }) {
   return (
     <RTLProvider>
+      <a href="#main-content" className="skip-to-content">
+        تخطي إلى المحتوى الرئيسي
+      </a>
       <Navbar isArabic={true} />
-      <main>{children}</main>
+      <main id="main-content">{children}</main>
       <Footer isArabic={true} />
     </RTLProvider>
   );
