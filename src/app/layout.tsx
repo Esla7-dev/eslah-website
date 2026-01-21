@@ -1,22 +1,42 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "ESLAH - Design that delivers",
-  description: "Multidisciplinary design team delivering architecture, interiors, landscape, and planning solutions",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
+  title: "ESLAH — Architecture & Design Studio",
+  description:
+    "Multidisciplinary design team delivering coordinated outcomes across architecture, interiors, landscape, and planning.",
+  keywords: ["architecture", "interior design", "landscape design", "urban planning", "BIM", "Revit", "3D visualization"],
+  authors: [{ name: "ESLAH" }],
+  openGraph: {
+    title: "ESLAH — Architecture & Design Studio",
+    description:
+      "Client-centered design deliverables: scope, constraints, and outcomes — not just images.",
+    type: "website",
+    locale: "en_US",
+    siteName: "ESLAH",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "ESLAH Architecture & Design Studio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ESLAH — Architecture & Design Studio",
+    description:
+      "Multidisciplinary design team delivering coordinated outcomes across architecture, interiors, landscape, and planning.",
+    images: ["/og.png"],
+  },
 };
 
 export default function RootLayout({
@@ -26,12 +46,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
-      >
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+      <body className={`${inter.className} bg-black text-white antialiased`}>
+        {children}
       </body>
     </html>
   );

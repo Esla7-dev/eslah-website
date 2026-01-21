@@ -22,7 +22,7 @@ export default function SelectedProjects() {
 
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
           {selected.map((p) => (
-            <ProjectCard key={p.slug} p={p} />
+            <ProjectCard key={p.slug} project={p} />
           ))}
         </div>
 

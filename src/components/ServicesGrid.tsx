@@ -31,6 +31,8 @@ const services = [
   },
 ];
 
+const toolBadges = ["AI", "Revit", "AutoCAD", "3ds Max", "SketchUp", "Unreal", "Blender", "Rhino"];
+
 export default function ServicesGrid() {
   return (
     <section className="px-8 py-20 border-t border-white/10">
@@ -44,8 +46,12 @@ export default function ServicesGrid() {
             </p>
           </div>
 
-          <div className="text-sm text-white/50 hidden md:block">
-            Revit • AutoCAD • 3ds Max • SketchUp • Unreal • Blender • Rhino • AI
+          <div className="hidden md:flex flex-wrap gap-2 justify-end">
+            {toolBadges.map((t) => (
+              <span key={t} className="text-xs text-white/60 border border-white/10 rounded px-2 py-1">
+                {t}
+              </span>
+            ))}
           </div>
         </div>
 

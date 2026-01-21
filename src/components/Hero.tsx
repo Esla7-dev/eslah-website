@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="px-8 py-32 max-w-6xl mx-auto">
+    <section className="px-8 py-32 max-w-6xl mx-auto soft-fade-in">
       <h1 className="text-5xl font-light leading-tight">
         Design that delivers<br />
         <span className="text-white/60">
